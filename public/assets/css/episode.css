@@ -1,0 +1,153 @@
+/* ********* episode header *************** */
+.cover {
+    position: relative;
+}
+.item-content {
+    position: absolute;
+    background-image: url(../../assets/img/episode_black_graient_effect.png);
+    background-size: cover;
+    height: 140px;
+    width: 100%;
+}
+.item-content {
+    color: white;
+    height: 100%;
+}
+.item-info {
+width: 100%;
+text-align: center;
+}
+.item-info h1 {
+    display: inline-block;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    vertical-align: middle;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.cover .cover-item {
+    position: relative;
+    height: 140px;
+  }
+  
+  .cover-item img {
+    position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      overflow: hidden;
+  }
+  .cover-title{
+    font-weight: bold;
+    font-size: 50px;
+
+  }
+  .cover-info {
+      font-size: 15px;
+  }
+  .cover-info span {
+      font-weight: bold;
+      color: #EE2D2F;
+  }
+  .item-cover-info {
+  width: auto;
+  margin-right: auto;
+  margin-left: auto;
+  }
+  .cover-info-details {
+      margin-left: 4%;
+  }
+  .item-buttons {
+      float: right;
+  }
+  .btn-cover {
+      text-align: left;
+      margin-left: 100px;
+  }
+  /* ********************** */
+/* **********              episode box          ************ */
+.episode-box {
+    background-color: #121421;
+    padding-top: 20px;
+    padding-left: 80px;
+    padding-bottom: 40px;
+}
+.episode-sidebar {
+    color: #484B5F;
+}
+.episode-video {
+    color: #484B5F;
+    margin-left: 80px;
+}
+.button-select {
+    background-color: #121421;
+    color: #C1C2D8;
+    border: #C1C2D8 2px solid;
+}
+.btn-none {
+    margin-left: 50px;
+}
+.episode-video-header {
+    margin-bottom: 20px;
+}
+.episode-sidebar {
+    vertical-align: top;
+    text-align: center;
+}
+.episodes-list {
+    height: 461px;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding-right: 25px;
+}
+.episodes-list ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.episodes-list ul hr{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #484B5F;
+    margin: 8px 0;
+    padding: 0; 
+}
+.episodes-list li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+}
+.episodes-list li a{
+    text-decoration: none;
+    color: #484B5F;
+}
+.episodes-list li a:hover{
+    color: white;
+}
+.active-li a{
+    color: white !important ;
+}
+/* ************* light off *************** */
+.light-off {
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #121421;
+    z-index: 5 !important;
+    visibility: hidden;
+}
+.light-on {
+    display: none;
+}
+.z-index-10 {
+    position: relative;
+    z-index: 10;
+}

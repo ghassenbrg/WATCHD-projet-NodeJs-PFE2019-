@@ -1,0 +1,63 @@
+.carousel .carousel-item {
+    position: relative;
+    height: 450px;
+  }
+  
+  .carousel-item img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 450px;
+  }
+  .item-content {
+      position: absolute;
+      background-image: url(../../assets/img/black-gradient-effect.png);
+      background-size: cover;
+      height: 450px;
+      width: 100%;
+  }
+  .indicators {
+      margin: 4%;
+      color: white;
+      position: absolute;
+      z-index: 1;
+      bottom: 0;
+      right: 0;
+  }
+  .btn-slider {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #EE2D2F;
+    border-radius: 50%;
+  }
+  .active {
+      background-color: white;
+  }
+  /* ***********************************  info ************************ */
+  .item-content {
+      color: white;
+      height: 100%;
+  }
+  .item-info {
+    position: absolute;
+    z-index: 1;
+    bottom: 25%;
+    left: 10%;
+  }
+  .item-info h1 {
+      font-size: 50px;
+      font-weight: bold;
+      color: white;
+  }
+  .item-info h1:hover {
+    color: #EE2D2F;
+}
+  .genre-icon {
+      color: #EE2D2F;
+  }
+  .espace {
+      margin-left: 20px;
+  }

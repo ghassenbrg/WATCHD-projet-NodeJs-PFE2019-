@@ -1,0 +1,223 @@
+/* **** icon **** */
+.alone-icon {
+    font-size: 30px;
+}
+/* ******************* buttons  ****************** */
+.btn-cat {
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+}
+.btn-top {
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+.btn-top:hover {
+    color: white;
+}
+.btn-series {
+    background-color: #1A79D8;
+    border: none;
+}
+.btn-movies {
+    background-color: #00A341;
+    border: none;
+}
+.btn-anime {
+    background-color: #FFB300;
+    border: none;
+}
+.btn-show-all {
+    background-color: #EE2D2F; 
+    border: none; 
+}
+.btn-poster {
+    padding: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 13px;
+    color: white;
+    border-radius: 5px 0 0 0;
+}
+.btn-poster:hover {
+    color: white;
+}
+.btn-completed {
+    border-radius: 0;
+    background-color: grey;
+    color: white !important;
+}
+.btn-ongoing {
+    border-radius: 0;
+    background-color: white;
+    color: grey !important;
+}
+.btn-cover {
+    border-radius: 65px;
+    padding: 13px;
+    width: 270px;
+    opacity: 0.9;
+}
+.btn-watch {
+    background-color: #EE2D2F;
+    border: none;
+}
+.btn-add {
+    margin-top: 10%;
+    background-color: #2E3039;
+    border: none;
+}
+.btn-episode-np {
+    display: inline-block;
+    vertical-align: middle;
+    width: 110px;
+    border-radius: 13px;
+}
+.btn-none {
+    color: #8B8B9B;
+    padding: 0;
+    font-size: 17px;
+}
+.btn-none i{
+    font-size: 23px;
+    vertical-align: middle;
+}
+.btn-none:hover {
+    color: white;
+}
+.btn-report {
+    color: #EE2D2F;
+}
+.btn-report:hover {
+    color: #A91A1C;
+}
+.radius {
+    border-radius: 5px 0 0 0;
+}
+.btn-outline-watchd {
+    border-radius: 10px;
+    border: black 3px solid;
+    width: 250px;
+    padding: 10px;
+    padding-left: 20px;
+    margin-top: 20px;
+    text-align: left;
+    color: black;
+}
+/* ******************* review stars  ****************** */
+.review-star {
+    color: #FFDA44;
+}
+.review-star-off {
+    color: white;
+}
+/* ***************** episode  ********************* */
+.episode {
+    position: relative;
+    width: 290px;
+    height: 180px;
+    border-radius: 5px;
+    margin-bottom: 2%;
+}
+.episode-figure {
+    width: 290px;
+    height: 180px;
+    border-radius: 5px;
+    overflow:hidden;
+}
+.episode-img {
+    width: 290px;
+    height: 180px;
+}
+.episode:hover .episode-img {
+    width: 315px;
+	height: auto;
+	-webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;    
+}
+.episode-content {
+    position: absolute;
+    background-image: url(../img/black-gradient-effect-episode.png);
+    background-size: cover;
+    border-radius: 5px;
+    width: 290px;
+    height: 180px;
+    color: white;
+}
+.episode-content h2 {
+    text-align: center;
+    margin-top: 50px;
+}
+.episode-info {
+    position: absolute;
+    bottom: 0;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+.episode-info h5 {
+    margin: 0;
+}
+.episode-info p {
+    color: grey;
+    font-size: 13px;
+}
+/* ***************** poster  ********************* */
+.poster {
+    position: relative;
+    width: 200px;
+    height: 277px;
+    border-radius: 5px;
+    margin-bottom: 2%;
+}
+.poster-figure {
+    width: 200px;
+    height: 277px;
+    border-radius: 5px;
+    overflow:hidden;
+}
+.poster-img {
+    width: 200px;
+    height: 277px;
+    object-fit: cover;
+}
+.poster:hover .poster-img {
+	width: 225px;
+	height: auto;
+	-webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.poster-content {
+    position: absolute;
+    background-image: url(../img/black-gradient-effect-episode.png);
+    background-size: cover;
+    border-radius: 5px;
+    width: 200px;
+    height: 277px;
+    color: white;
+}
+.poster-content h2 {
+    text-align: center;
+    margin-top: 50px;
+}
+.poster-info {
+    position: absolute;
+    bottom: 0;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+.poster-info a {
+    color: white;
+}
+.poster-info h5 {
+    margin: 0;
+}
+.poster-info p {
+    color: grey;
+    font-size: 13px;
+}
+.poster-links {
+    position: absolute;
+    margin-top: 2px;
+    z-index: 1;
+}
