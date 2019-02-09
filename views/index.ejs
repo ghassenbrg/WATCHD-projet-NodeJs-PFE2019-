@@ -11,71 +11,25 @@
                 <li data-target="#slider" data-slide-to="4" class="btn-slider" id="btn4"></li>
              </ul>
             <div class="carousel-inner"><!-- carousel items -->
-                <div class="carousel-item active"> <!-- single item 0 -->
-                    <img src="temp/slide_img/slide1.jpg" class=" slider-img" alt="...">
+                <% for (let i=0; i < carousel.length; i++) { 
+                  if (i == 0) {
+                %>
+                <%- '<div class="carousel-item active">' %>
+                <% } else { %>
+                <%- '<div class="carousel-item">' %><% } %> 
+                    <img src="<%= carousel[i].cover_url %>" class=" slider-img" alt="...">
                     <div class="item-content">
                         <div class="item-info">
-                            <a href="#"><button class="btn btn-cat btn-series"><i class="icon-television"></i> Series</button></a>
-                            <a href="#"><h1>Game of Thrones S08</h1></a>
+                            <a href="#"><button class="btn btn-cat btn-<%= carousel[i].type.toLowerCase() %>"><i class="icon-television"></i> <%= carousel[i].type %></button></a>
+                            <a href="#"><h1><%= carousel[i].title %></h1></a>
                             <p class="info-text">
-                                <i class="icon-video genre-icon"></i> Fantasy . Adventure . Action
-                                <i class="espace"></i><i class="icon-star review-star"></i> imdb (9.5/10)
+                                <i class="icon-video genre-icon"></i> <% for (let j=0; j< carousel[i].genre.length; j++) __append(carousel[i].genre[j]+' . ')   %>
+                                <i class="espace"></i><i class="icon-star review-star"></i> imdb (<%= carousel[i].rating %>/10)
                             </p>
                         </div>  
                     </div>
                   </div>
-                  <div class="carousel-item"> <!-- single item 1 -->
-                    <img src="temp/slide_img/slide2.jpg" class="d-block w-100" alt="...">
-                    <div class="item-content">
-                        <div class="item-info">
-                            <a href="#"><button class="btn btn-cat btn-series"><i class="icon-television"></i> Series</button></a>
-                            <a href="#"><h1>Vikings S05</h1></a>
-                            <p class="info-text">
-                                <i class="icon-video genre-icon"></i> Fantasy . Adventure . Action
-                                <i class="espace"></i><i class="icon-star review-star"></i> imdb (8.3/10)
-                            </p>
-                        </div>                             
-                    </div>
-                  </div>
-                  <div class="carousel-item"> <!-- single item 2 -->
-                    <img src="temp/slide_img/slide3.jpg" class="d-block w-100" alt="...">
-                    <div class="item-content">
-                        <div class="item-info">
-                            <a href="#"><button class="btn btn-cat btn-anime"><i class="icon-anime"></i> Anime</button></a>
-                            <a href="#"><h1>Attack on titan S04</h1></a>
-                            <p class="info-text">
-                                <i class="icon-video genre-icon"></i> Fantasy . Adventure . Action
-                                <i class="espace"></i><i class="icon-star review-star"></i> imdb (9.5/10)
-                            </p>
-                        </div>  
-                    </div>
-                  </div>
-                  <div class="carousel-item"> <!-- single item 3 -->
-                    <img src="temp/slide_img/slide4.jpg" class="d-block w-100" alt="...">
-                    <div class="item-content">
-                        <div class="item-info">
-                            <a href="#"><button class="btn btn-cat btn-movies"><i class="icon-movie"></i> Movies</button></a>
-                            <a href="#"><h1>Venom</h1></a>
-                            <p class="info-text">
-                                <i class="icon-video genre-icon"></i> Fantasy . Adventure . Action
-                                <i class="espace"></i><i class="icon-star review-star"></i> imdb (9.5/10)
-                            </p>
-                        </div>  
-                    </div>
-                  </div>
-                  <div class="carousel-item"> <!-- single item 4 -->
-                    <img src="temp/slide_img/slide5.jpg" class="d-block w-100" alt="...">
-                    <div class="item-content">
-                        <div class="item-info">
-                            <a href="#"><button class="btn btn-cat btn-anime"><i class="icon-anime"></i> Anime</button></a>
-                            <a href="#"><h1>Black Clover S01</h1></a>
-                            <p class="info-text">
-                                <i class="icon-video genre-icon"></i> Fantasy . Adventure . Action
-                                <i class="espace"></i><i class="icon-star review-star"></i> imdb (9.5/10)
-                            </p>
-                        </div>  
-                    </div>
-                  </div>
+                  <% } %>
              </div>
          </div>
         </header>
@@ -90,44 +44,20 @@
                     </span>
                 </div>
                 <div class="row">
+                    <% for (let i=0; i < last_episodes.length; i++) { %>
                     <div class="col episode"> <!-- episode item 1-->
                         <a href="Episode.html"><div class="episode-content">
                             <h2><i class="icon-play"></i></h2>
                             <div class="episode-info">
-                                <h5>Vikings S05E13</h5>
-                                <p>2 hours ago</p>
+                                <h5><%= last_episodes[i].title+' '+last_episodes[i].season_ref+last_episodes[i].ep_ref %></h5>
+                                <p><%= last_episodes[i].date.getDate()+'-'+last_episodes[i].date.getMonth()+'-'+last_episodes[i].date.getFullYear() %></p>
                             </div>
                         </div></a>
                         <figure class="episode-figure">
-                            <img src="temp/slide_img/slide2.jpg" class="episode-img"/>
+                            <img src="<%= last_episodes[i].img_url %>" class="episode-img"/>
                         </figure>
                     </div>
-
-                    <div class="col episode"> <!-- episode item 2-->
-                        <a href="Episode.html"><div class="episode-content">
-                            <h2><i class="icon-play"></i></h2>
-                            <div class="episode-info">
-                                <h5>Attack on Titan S03E12</h5>
-                                <p>2 hours ago</p>
-                            </div>
-                        </div></a>
-                        <figure class="episode-figure">
-                                <img src="temp/slide_img/slide3.jpg" class="episode-img"/>
-                        </figure>
-                    </div>
-
-                    <div class="col episode"> <!-- episode item 3-->
-                        <a href="Episode.html"><div class="episode-content">
-                            <h2><i class="icon-play"></i></h2>
-                            <div class="episode-info">
-                                <h5>Black Clover S01E67</h5>
-                                <p>2 hours ago</p>
-                            </div>
-                        </div></a>
-                        <figure class="episode-figure">
-                                <img src="temp/slide_img/slide5.jpg" class="episode-img"/>
-                        </figure>
-                    </div>
+                    <% } %>
                 </div>
             </div>            
             <!-- ********************* new added *********************--> 
@@ -142,29 +72,31 @@
                     </span>
                 </div>
                 <div class="row">              
-                    <!-- ********************************** poster item 1 ********************************** -->       
+                    <!-- ********************************** poster item 1 ********************************** --> 
+                    <% for(let i=0; i < newAdded.length; i++) { %>      
                     <div class="col poster example1">
                             <div class="poster-links">
-                                <a href="#" class="btn-poster btn-series"><i class="icon-television"></i> Series</a><a class="btn-poster btn-completed">Completed</a>
+                                <a href="#" class="btn-poster btn-<%= newAdded[i].type.toLowerCase() %>"><i class="icon-television"></i><%= newAdded[i].type %></a><a class="btn-poster btn-completed">Completed</a>
                             </div>
                             <a href="SeasonPage.html"><div class="poster-content">
                             <div class="poster-info">
-                                <h5>Game of Thrones S08</h5>
+                                <h5><%= newAdded[i].title %></h5>
                                 <p>
+                                    <% for(let j=0; j < 5; j++) { 
+                                       if (j < (newAdded[i].rating / 2)) {%>
                                     <i class="icon-star review-star"></i>
-                                    <i class="icon-star review-star"></i>
-                                    <i class="icon-star review-star"></i>
-                                    <i class="icon-star review-star"></i>
+                                    <% } else { %>
                                     <i class="icon-star review-star-off"></i>
+
+                                    <% } } %>
                                 </p>
                             </div>
                         </div> </a>
                         <figure class="poster-figure">
-                                <img src="temp/posters/1.jpg" class="poster-img"/>
+                                <img src="<%= newAdded[i].poster_url %>" class="poster-img"/>
                         </figure>   
                     </div> 
-                <!-- repeat items-->
-                <script>multiplyNode(document.querySelector('.example1'), 10, true);</script>
+                    <% } %>
                 </div>
             </div>                
             <!-- ********************* most watched *********************--> 
@@ -179,29 +111,31 @@
                     </span>
                 </div>
                 <div class="row">              
-                    <!-- ********************************** poster item 1 ********************************** -->       
-                    <div class="col poster example2">
-                            <div class="poster-links">
-                                <a href="#" class="btn-poster btn-series"><i class="icon-television"></i> Series</a><a class="btn-poster btn-completed">Completed</a>
-                            </div>
-                            <a href="SingleSeriePage.html"><div class="poster-content">
-                            <div class="poster-info">
-                                <h5>The Last Kingdom</h5>
-                                <p>
-                                    <i class="icon-star review-star"></i>
-                                    <i class="icon-star review-star"></i>
-                                    <i class="icon-star review-star"></i>
-                                    <i class="icon-star review-star"></i>
-                                    <i class="icon-star review-star-off"></i>
-                                </p>
-                            </div>
-                        </div> </a>
-                        <figure class="poster-figure">
-                                <img src="temp/posters/9.png" class="poster-img"/>
-                        </figure>   
-                    </div> 
-                <!-- repeat items-->
-                <script>multiplyNode(document.querySelector('.example2'), 10, true);</script>
+                    <!-- ********************************** poster item 1 ********************************** --> 
+                    <% for(let i=0; i < newAdded.length; i++) { %>      
+                        <div class="col poster example1">
+                                <div class="poster-links">
+                                    <a href="#" class="btn-poster btn-<%= newAdded[i].type.toLowerCase() %>"><i class="icon-television"></i><%= newAdded[i].type %></a><a class="btn-poster btn-completed">Completed</a>
+                                </div>
+                                <a href="SeasonPage.html"><div class="poster-content">
+                                <div class="poster-info">
+                                    <h5><%= newAdded[i].title %></h5>
+                                    <p>
+                                        <% for(let j=0; j < 5; j++) { 
+                                           if (j < (newAdded[i].rating / 2)) {%>
+                                        <i class="icon-star review-star"></i>
+                                        <% } else { %>
+                                        <i class="icon-star review-star-off"></i>
+    
+                                        <% } } %>
+                                    </p>
+                                </div>
+                            </div> </a>
+                            <figure class="poster-figure">
+                                    <img src="<%= newAdded[i].poster_url %>" class="poster-img"/>
+                            </figure>   
+                        </div> 
+                        <% } %>
                 </div>
             </div>  
             
