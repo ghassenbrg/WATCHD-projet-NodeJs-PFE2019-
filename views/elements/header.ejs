@@ -5,17 +5,21 @@
         <title><%= title %></title>
         <meta name="description" content="The website provide a free 'alternative' to subscription-based video streaming services such as Netflix.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="favico.ico">
-        <link rel="stylesheet" href="assets/css/icons/style.css">
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/elements.css">
-        <link rel="stylesheet" href="assets/css/slider.css">
-        <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <link rel="shortcut icon" href="<%= prefixe %>favico.ico">
+        <link rel="stylesheet" href="<%= prefixe %>assets/css/icons/style.css">
+        <link rel="stylesheet" href="<%= prefixe %>assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<%= prefixe %>assets/css/style.css">
+        <link rel="stylesheet" href="<%= prefixe %>assets/css/elements.css">
+        <% if (page == 'index') { %>
+        <link rel="stylesheet" href="<%= prefixe %>assets/css/slider.css">
+        <% } else if (page == 'itemPage') { %>
+        <link rel="stylesheet" href="<%= prefixe %>assets/css/cover.css">
+        <% }%>
+        <script src="<%= prefixe %>assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="<%= prefixe %>assets/js/popper.min.js"></script>
+        <script src="<%= prefixe %>assets/bootstrap/js/bootstrap.min.js"></script>
 
-        <script src="assets/js/script.js"></script>
+        <script src="<%= prefixe %>assets/js/script.js"></script>
     </head>
     <!-- **************************************  body start ************************************** -->
     <body>
@@ -24,18 +28,18 @@
         <nav>
             <ul>
                 <li class="nav-logo">
-                    <a href="/"><img src="assets/img/logo.png" alt="" class="logo"></a> <!-- logo -->
+                    <a href="/"><img src="<%= prefixe %>assets/img/logo.png" alt="" class="logo"></a> <!-- logo -->
                 </li>
-                <li class="nav-item active-item">
+                <li class="nav-item <% if (page == 'index') __append('active-item'); %>">
                     <a href="/"><span class="icon-home"></span>  Home</a>                
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <% if (page == 'series') __append('active-item'); %>">
                     <a href="#"><span class="icon-television"></span>  Series</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <% if (page == 'movies') __append('active-item'); %>">
                     <a href="#"><span class="icon-movie"></span>  Movies</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <% if (page == 'anime') __append('active-item'); %>">
                     <a href="#"><span class="icon-anime"></span>  Anime </a>
                 </li>  
                 <li class="nav-search">

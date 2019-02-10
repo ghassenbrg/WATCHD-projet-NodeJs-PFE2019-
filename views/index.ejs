@@ -21,7 +21,7 @@
                     <div class="item-content">
                         <div class="item-info">
                             <a href="#"><button class="btn btn-cat btn-<%= carousel[i].type.toLowerCase() %>"><i class="icon-television"></i> <%= carousel[i].type %></button></a>
-                            <a href="#"><h1><%= carousel[i].title %></h1></a>
+                            <a href="/item/<%= carousel[i].id %>"><h1><%= carousel[i].title %></h1></a>
                             <p class="info-text">
                                 <i class="icon-video genre-icon"></i> <% for (let j=0; j< carousel[i].genre.length; j++) __append(carousel[i].genre[j]+' . ')   %>
                                 <i class="espace"></i><i class="icon-star review-star"></i> imdb (<%= carousel[i].rating %>/10)
@@ -46,11 +46,11 @@
                 <div class="row">
                     <% for (let i=0; i < last_episodes.length; i++) { %>
                     <div class="col episode"> <!-- episode item 1-->
-                        <a href="Episode.html"><div class="episode-content">
+                        <a href="/item/<%= last_episodes[i].id+'/'+last_episodes[i].season_ref+'/'+last_episodes[i].ep_ref %>"><div class="episode-content">
                             <h2><i class="icon-play"></i></h2>
                             <div class="episode-info">
-                                <h5><%= last_episodes[i].title+' '+last_episodes[i].season_ref+last_episodes[i].ep_ref %></h5>
-                                <p><%= last_episodes[i].date.getDate()+'-'+last_episodes[i].date.getMonth()+'-'+last_episodes[i].date.getFullYear() %></p>
+                                <h5><%= last_episodes[i].title+' '+last_episodes[i].season_ref%><% if (last_episodes[i].type != 'Movies') __append(last_episodes[i].ep_ref); %></h5>
+                                <p><%= last_episodes[i].date.getDate()+'-'+(last_episodes[i].date.getMonth()+1)+'-'+last_episodes[i].date.getFullYear(); %></p>
                             </div>
                         </div></a>
                         <figure class="episode-figure">
@@ -76,11 +76,11 @@
                     <% for(let i=0; i < newAdded.length; i++) { %>      
                     <div class="col poster example1">
                             <div class="poster-links">
-                                <a href="#" class="btn-poster btn-<%= newAdded[i].type.toLowerCase() %>"><i class="icon-television"></i><%= newAdded[i].type %></a><a class="btn-poster btn-completed">Completed</a>
+                                <a href="#" class="btn-poster btn-<%= newAdded[i].type.toLowerCase() %>"><i class="icon-television"></i> <%= newAdded[i].type %></a><a class="btn-poster btn-<%= newAdded[i].complete %>"><%= newAdded[i].complete %></a>
                             </div>
-                            <a href="SeasonPage.html"><div class="poster-content">
+                            <a href="/item/<%= newAdded[i].id+'/'+newAdded[i].season_ref %>"><div class="poster-content">
                             <div class="poster-info">
-                                <h5><%= newAdded[i].title %></h5>
+                                <h5><%= newAdded[i].title+' '+newAdded[i].season_ref %></h5>
                                 <p>
                                     <% for(let j=0; j < 5; j++) { 
                                        if (j < (newAdded[i].rating / 2)) {%>
@@ -112,17 +112,17 @@
                 </div>
                 <div class="row">              
                     <!-- ********************************** poster item 1 ********************************** --> 
-                    <% for(let i=0; i < newAdded.length; i++) { %>      
+                    <% for(let i=0; i < mostWatched.length; i++) { %>      
                         <div class="col poster example1">
                                 <div class="poster-links">
-                                    <a href="#" class="btn-poster btn-<%= newAdded[i].type.toLowerCase() %>"><i class="icon-television"></i><%= newAdded[i].type %></a><a class="btn-poster btn-completed">Completed</a>
+                                    <a href="#" class="btn-poster btn-<%= mostWatched[i].type.toLowerCase() %>"><i class="icon-television"></i> <%= mostWatched[i].type %></a><a class="btn-poster btn-<%= mostWatched[i].complete %>"><%= mostWatched[i].complete %></a>
                                 </div>
-                                <a href="SeasonPage.html"><div class="poster-content">
+                                <a href="/item/<%= mostWatched[i].id %>"><div class="poster-content">
                                 <div class="poster-info">
-                                    <h5><%= newAdded[i].title %></h5>
+                                    <h5><%= mostWatched[i].title %></h5>
                                     <p>
                                         <% for(let j=0; j < 5; j++) { 
-                                           if (j < (newAdded[i].rating / 2)) {%>
+                                           if (j < (mostWatched[i].rating / 2)) {%>
                                         <i class="icon-star review-star"></i>
                                         <% } else { %>
                                         <i class="icon-star review-star-off"></i>
@@ -132,7 +132,7 @@
                                 </div>
                             </div> </a>
                             <figure class="poster-figure">
-                                    <img src="<%= newAdded[i].poster_url %>" class="poster-img"/>
+                                    <img src="<%= mostWatched[i].poster_url %>" class="poster-img"/>
                             </figure>   
                         </div> 
                         <% } %>
@@ -141,23 +141,5 @@
             
             
         </div> 
-        <!-- ********************* footer ********************* -->
-        <footer class="footer">
-            <img src="assets/img/logo.png" alt="" class="logo"> <!-- logo -->
-            <div class="social-media"> <!-- social media links -->
-                <a href="#" class="facebook"><img src="assets/img/social-media/facebook.svg" alt="" class="social-img"></a> <!-- facebook -->
-                <a href="#" class="instagram"><img src="assets/img/social-media/instagram.svg" alt="" class="social-img"></a> <!-- instagram -->
-                <a href="#" class="twitter"><img src="assets/img/social-media/twitter.svg" alt="" class="social-img"></a> <!-- twitter -->
-                <a href="#" class="youtube"><img src="assets/img/social-media/youtube.svg" alt="" class="social-img"></a> <!--youtube -->
-            </div>
-            <div class="bot-menu"> <!-- bottom menu -->
-                <a href="#" class="bot-menu-item">Privacy policy</a> | 
-                <a href="#" class="bot-menu-item">Terms of use</a> |
-                <a href="#" class="bot-menu-item">Contact-us</a>
-            </div>
-            <p class="copyright"> <!-- copyright text -->
-                All right reserved to WATCHD.tn © 2019  -  Developped By GhasSen&YousSef
-            </p>
-        </footer>
-    </body>
-</html>
+
+<%- include elements/footer.ejs %>
