@@ -23,12 +23,13 @@ class Season{
             this.title = res["title"];
             this.type = res["type"];
             this.rating = res["rating"];
+            this.cover_url = res["cover_url"];
         });
     }
 
     getItem(query) {
         return new Promise( ( resolve, reject ) => {
-            db.con.query('SELECT title, type, rating, finish FROM item WHERE id='+this.id, (err,rows) => {
+            db.con.query('SELECT title, type, rating, cover_url, finish FROM item WHERE id='+this.id, (err,rows) => {
                 if ( err )
                   throw err;
                 let res = rows[0];

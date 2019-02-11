@@ -26,9 +26,11 @@ class Item{
 
         this.genre = [];
         this.actor = [];
+        this.season = [];
 
         this.setGenre().then(res => this.genre = res);
         this.setActor().then(res => this.actor = res);
+        this.setSeason().then(res => this.season = res);
     }
 
     setGenre(){
@@ -54,6 +56,17 @@ class Item{
           for (let i = 0; i < rows.length; i++){
             res.push(rows[i]["name"]);
           }
+          resolve(res);
+      });
+       });
+    }
+
+    setSeason(){
+      return new Promise( ( resolve, reject ) => {
+        db.con.query('SELECT count(*) c FROM season WHERE id='+this.id, (err,rows) => {
+          if ( err )
+            throw err;
+          let res= rows[0]["c"];
           resolve(res);
       });
        });

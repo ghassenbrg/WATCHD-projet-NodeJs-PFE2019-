@@ -10,11 +10,17 @@
         <link rel="stylesheet" href="<%= prefixe %>assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="<%= prefixe %>assets/css/style.css">
         <link rel="stylesheet" href="<%= prefixe %>assets/css/elements.css">
+        
         <% if (page == 'index') { %>
         <link rel="stylesheet" href="<%= prefixe %>assets/css/slider.css">
         <% } else if (page == 'itemPage') { %>
         <link rel="stylesheet" href="<%= prefixe %>assets/css/cover.css">
-        <% }%>
+        <% } else if (page == 'seasonPage') { %>
+        <link rel="stylesheet" href="<%= prefixe %>assets/css/seasonPage.css">
+        <% } else if (page == 'episodePage') { %>
+        <link rel="stylesheet" href="<%= prefixe %>assets/css/episode.css">
+        <% } %>
+        
         <script src="<%= prefixe %>assets/js/jquery-3.3.1.slim.min.js"></script>
         <script src="<%= prefixe %>assets/js/popper.min.js"></script>
         <script src="<%= prefixe %>assets/bootstrap/js/bootstrap.min.js"></script>

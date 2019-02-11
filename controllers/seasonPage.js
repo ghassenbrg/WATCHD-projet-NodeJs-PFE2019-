@@ -6,32 +6,32 @@ class SeasonPage {
     constructor() {
     }
 
-    execute(id, req, res){
+    execute(id, season_ref, req, res){
         var title = " | WATCHD.tn";
         let queries = [
-          this.getItem(id),
-          this.getEpisodes(id),
-          this.getSeasons(id),
+          this.getSeason(id, season_ref),
+          this.getEpisodes(id, season_ref),
+          this.getSeasons(id, season_ref),
           this.getRelated(id)
         ];
 
         Promise.all(queries)
         .then(results => {
           //db.con.end();
-          title = results[0].title + title;
-          res.render('SeasonPage', {title: title, prefixe: "../../", page: "seasonPage", item: results[0], episodes: results[1], seasons: results[2], related: results[3]});
+          title = results[0].title +' '+ season_ref + title;
+          res.render('SeasonPage', {title: title, prefixe: "../../", page: "seasonPage", season: results[0], episodes: results[1], seasons: results[2], related: results[3]});
           
         })
         .catch(err => {
           console.error('Error fetching data:', err)
         });
     }
-    getItem(id){
+    getSeason(id, season_ref){
       return new Promise( ( resolve, reject ) => {
-        db.con.query('SELECT * FROM item WHERE id='+id, (err,rows) => {
+        db.con.query('SELECT * FROM season WHERE id='+id+' AND sn="'+season_ref+'"', (err,rows) => {
             if ( err )
               return reject( err );
-            let res= new Item(rows[0]);
+            let res= new Season(rows[0]);
             setTimeout(() => {
               resolve(res);
              }, 10); 
@@ -39,9 +39,9 @@ class SeasonPage {
        });
     }
 
-    getEpisodes(id){
+    getEpisodes(id, season_ref){
         return new Promise( ( resolve, reject ) => {
-            db.con.query('SELECT * FROM episode WHERE id='+id+' ORDER BY date DESC LIMIT 3', (err,rows) => {
+            db.con.query('SELECT * FROM episode WHERE id='+id+' AND sn="'+season_ref+'"'+' ORDER BY en DESC', (err,rows) => {
               if ( err )
                   return reject( err );
                   let res= [];
@@ -52,12 +52,12 @@ class SeasonPage {
                     resolve(res);
                    }, 10); 
           });
-           });
+        });
       }
 
-    getSeasons(id){
+    getSeasons(id, season_ref){
         return new Promise( ( resolve, reject ) => {
-            db.con.query('SELECT * FROM season WHERE id='+id+' ORDER BY date DESC', (err,rows) => {
+            db.con.query('SELECT * FROM season WHERE id='+id+' AND sn <> "'+season_ref+'" ORDER BY sn DESC', (err,rows) => {
                 if ( err )
                     return reject( err );
                     let res= [];

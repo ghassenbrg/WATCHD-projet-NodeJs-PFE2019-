@@ -1,0 +1,141 @@
+<%- include elements/header.ejs %>
+        <div class="cover">
+            <div class="cover-item">
+                <img src="<%= prefixe+episode.item.cover_url %>" class=" slider-img" alt="...">
+                <div class=" item-content">
+                    <div class=" item-info item-cover-info">
+                        <div class="btn-cover">
+                            <a href="#"><button class="btn btn-cat btn-<%= episode.item.type.toLowerCase() %>"><i class="icon-anime"></i> <%= episode.item.type %></button></a>
+                        </div>
+                        <% var pos=0; 
+                            while((episode.ep_ref != other_episodes[pos].ep_ref) && (pos < other_episodes.length)){
+                                
+                                pos++;
+                            }  
+                        %>
+                        <a href="<% if (pos > 0) __append('/item/'+other_episodes[pos-1].id+'/'+other_episodes[pos-1].season_ref+'/'+other_episodes[pos-1].ep_ref); %>"><button class="btn btn-outline-light btn-episode-np"><i class="icon-previous"></i> Previous</button></a>
+                        <h1 class="cover-title"><%= episode.item.title+' '+episode.season_ref+episode.ep_ref %></h1>
+                        <a href="<% if (pos < other_episodes.length-1) __append('/item/'+other_episodes[pos+1].id+'/'+other_episodes[pos+1].season_ref+'/'+other_episodes[pos+1].ep_ref); %>"><button class="btn btn-outline-light btn-episode-np">Next <i class="icon-next"></i></button></a>
+                    </div>
+                </div>
+              </div>
+        </div>
+      </header>
+      <!-- ********************* episode *********************--> 
+        <div class="episode-box">
+            <div class="episode-sidebar div-inline">
+                <div class="dropdown episode-video-header"> <!-- choice season -->
+                    <button class="btn btn-secondary dropdown-toggle btn-outline-light button-select" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= episode.season_ref %>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <% for(let i=seasons.length-1; i > -1; i--) { %>
+                        <a class="dropdown-item" href="/item/<%= episode.id+'/'+seasons[i].season_ref %>"><%= seasons[i].season_ref %></a>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="episodes-list">
+                    <ul>
+                        <% for (let i=other_episodes.length-1; i > -1; i--) { %>
+                        <li class="<% if (episode.ep_ref == other_episodes[i].ep_ref ) __append('active-li'); %>">
+                            <a href="/item/<%= other_episodes[i].id+'/'+other_episodes[i].season_ref+'/'+other_episodes[i].ep_ref %>"><% let x = i+1; if (other_episodes[i].type == 'Movies') __append('MV'); else __append('Episode '+x) %></a>
+                        </li> <hr> 
+                        <% } %>
+                    </ul>
+                </div>     
+            </div>
+            <div class="episode-video div-inline">
+                <div class="episode-video-header">
+                    <div class="dropdown div-inline"> <!-- choice of the video server -->
+                        <button class="btn btn-secondary dropdown-toggle btn-outline-light button-select" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%= episode.servers[0].server %>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <% for (let i=0; i < episode.servers.length; i++) { %>
+                            <a class="dropdown-item" href="#"><%= episode.servers[i].server %></a>
+                            <% } %>
+                        </div>
+                    </div>
+                    <button class="btn btn-none"><i class="icon-light_off" ></i> Turn off light</button>
+                    <button class="btn btn-none light-on z-index-10"><i class="icon-light_on"></i> Turn on light</button>
+                    <button class="btn btn-none"><i class="icon-calendar"></i> To be continued</button>
+                    <button class="btn btn-none"><i class="icon-download"></i> Download</button>
+                    <button class="btn btn-none btn-report"><i class="icon-warning"></i> Report</button>
+                </div>
+                <div class="video-frame">
+                    <%- episode.servers[0].video_iframe %>
+                </div>
+            </div>
+        </div>   
+         <!-- *********************************--> 
+        <div class="container">          
+            <!-- ********************* serie info *********************--> 
+            <div class="container-item new-added">
+                <div class="row">              
+                    <!-- ********************************** poster item 1 ********************************** -->       
+                    <div class="col col-3 poster">
+                            <div class="poster-links">
+                                <a class="btn-poster btn-<%= episode.item.complete %> radius"><%= episode.item.complete %></a>
+                            </div>
+                        <figure class="poster-figure">
+                                <img src="<%= prefixe+episode.item.poster_url %>" class="poster-img"/>
+                        </figure>   
+                    </div> 
+                    <div class="col col-6">
+                            <a href="#"><button class="btn btn-cat btn-<%= episode.item.type.toLowerCase() %>"><i class="icon-anime"></i> <%= episode.item.type %></button></a>
+                            <h1 class="cover-title"><%= episode.item.title %></h1>
+                            <p class="cover-info cover-info-details">
+                                <span>Runtime: </span><%= episode.item.runtime %> min
+                                <br><span> Genre: </span><% for (let i=0; i < episode.item.genre.length; i++) __append(episode.item.genre[i]+' . '); %>
+                                <br><span>Actors: </span><% for (let i=0; i < episode.item.actor.length; i++) __append(episode.item.actor[i]+', '); %>
+                                <br><span>Rating: </span> <i class="icon-star review-star"></i> imdb (<%= episode.item.rating %>/10)
+                                <% if (episode.item.type != 'Movies'){ %><br><span>Seasons: </span><%= episode.item.season %><% }%>
+                                <br><span>Released: </span><%= episode.item.released %><% if (episode.item.type != 'Movies') __append(' - '); if ((episode.item.finish != 0)&&(episode.item.finish != 1)) __append(episode.item.finish); %>
+                                <br><span>Language: </span><%= episode.item.language %>
+                            </p>
+                    </div>
+                    <div class="col col-3">
+                        <button class="btn btn-outline-dark btn-outline-watchd"><i class="icon-notifications-on"></i> Subscribe to notifications</button>
+                        <button class="btn btn-outline-dark btn-outline-watchd"><i class="icon-time"></i> Add to wishlist</button>
+                        <button class="btn btn-outline-dark btn-outline-watchd"><i class="icon-checked"></i> Already seen list</button>
+                        <button class="btn btn-outline-dark btn-outline-watchd"><i class="icon-like"></i> My favorite</button>
+                    </div>
+                </div>
+            </div>                
+ <!-- ********************* related *********************--> 
+ <div class="container-item new-added">
+        <div class="container-item-header">
+            <h3><span class="icon-event"></span> Related</h3>
+        </div>
+        <div class="row">              
+            <!-- ********************************** poster item 1 ********************************** -->       
+            <% for(let i=0; i < related.length; i++) { %>      
+                <div class="col poster example1">
+                    <div class="poster-links">
+                        <a href="#" class="btn-poster btn-<%= related[i].type.toLowerCase() %>"><i class="icon-television"></i> <%= related[i].type %></a><a class="btn-poster btn-<%= related[i].complete %>"><%= related[i].complete %></a>
+                    </div>
+                    <a href="/item/<%= related[i].id %>"><div class="poster-content">
+                    <div class="poster-info">
+                        <h5><%= related[i].title %></h5>
+                        <p>
+                            <% for(let j=0; j < 5; j++) { 
+                               if (j < (related[i].rating / 2)) {%>
+                                <i class="icon-star review-star"></i>
+                                <% } else { %>
+                                <i class="icon-star review-star-off"></i>
+
+                            <% } } %>
+                        </p>
+                    </div>
+                </div> </a>
+                <figure class="poster-figure">
+                        <img src="../<%= prefixe+related[i].poster_url %>" class="poster-img"/>
+                </figure>   
+            </div> 
+            <% } %> 
+        </div>
+    </div>  
+    
+</div> 
+
+<%- include elements/footer.ejs %>

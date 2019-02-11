@@ -1,5 +1,6 @@
 const db = require('./db');
-
+const Item = require('../models/item');
+const Server = require('../models/server');
 class Episode{
 
     constructor (res , query) {
@@ -7,14 +8,14 @@ class Episode{
         this.id = res.id;
         this.season_ref = res.sn;
         this.ep_ref = res.en;
-        this.video_frame = res.video_frame;
         this.img_url = res.img_url;
         this.date = res.date;
 
         if (query == "all"){
-            this.getItem().then(res => this.item = res);
+            this.getItem(query).then(res => this.item = res);
+            this.getServers().then(res => this.servers = res);
         } else {
-            this.getItem().then(res => {
+            this.getItem(query).then(res => {
                 this.title = res["title"];
                 this.type = res["type"];
             });
@@ -42,6 +43,20 @@ class Episode{
                     resolve(res);
                 });
             }
+           });
+    }
+
+    getServers() {
+        return new Promise( ( resolve, reject ) => {
+                db.con.query('SELECT * FROM server WHERE id='+this.id+' AND sn="'+this.season_ref+'" AND en="'+this.ep_ref+'"', (err,rows) => {
+                    if ( err )
+                      throw err;
+                    let res = [];
+                    for (let i = 0; i < rows.length; i++){
+                        res.push(new Server(rows[i]));
+                    }
+                    resolve(res);
+                });
            });
     }
 }
