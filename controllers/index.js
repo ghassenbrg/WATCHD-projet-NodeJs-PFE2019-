@@ -27,7 +27,7 @@ class Index {
     }
     getCarousel(){
       return new Promise( ( resolve, reject ) => {
-        db.con.query('SELECT * FROM item LIMIT 3', (err,rows) => {
+        db.con.query('SELECT * FROM item ORDER BY date DESC LIMIT 5', (err,rows) => {
             if ( err )
               return reject( err );
             let res= [];
@@ -68,7 +68,7 @@ class Index {
                 }
                 setTimeout(() => {
                   resolve(res);
-                 }, 10); 
+                 }, 20); 
         });
        });
     }

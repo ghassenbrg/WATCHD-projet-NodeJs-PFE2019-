@@ -20,7 +20,7 @@
                     <img src="<%= carousel[i].cover_url %>" class=" slider-img" alt="...">
                     <div class="item-content">
                         <div class="item-info">
-                            <a href="#"><button class="btn btn-cat btn-<%= carousel[i].type.toLowerCase() %>"><i class="icon-television"></i> <%= carousel[i].type %></button></a>
+                            <a href="#"><button class="btn btn-cat btn-<%= carousel[i].type.toLowerCase() %>"><i class="icon-<%= carousel[i].type.toLowerCase() %>"></i> <%= carousel[i].type %></button></a>
                             <a href="/item/<%= carousel[i].id %>"><h1><%= carousel[i].title %></h1></a>
                             <p class="info-text">
                                 <i class="icon-video genre-icon"></i> <% for (let j=0; j< carousel[i].genre.length; j++) __append(carousel[i].genre[j]+' . ')   %>
@@ -59,24 +59,39 @@
                     </div>
                     <% } %>
                 </div>
-            </div>            
+            </div>         
+            <%
+                var showMeAdded = 'all';
+
+                function setShowMeAdded (type) {
+                    showMeAdded = type;
+                }
+
+                function filterAdded (type) {
+                    if( showMeAdded == 'all') {
+                        return '';
+                    } else if( showMeAdded != type) {
+                        return 'hidden';
+                    }
+                }
+            %>
             <!-- ********************* new added *********************--> 
             <div class="container-item new-added">
                 <div class="container-item-header">
                     <h3><span class="icon-calendar"></span> New Added</h3>
                     <span class="container-item-header-right">
-                        <button class="btn btn-danger btn-top btn-show-all"><i class="icon-lines"></i> All</button>
-                        <button class="btn btn-primary btn-top btn-series"><i class="icon-television"></i> Series</button>
-                        <button class="btn btn-success btn-top btn-movies"><i class="icon-movie"></i> Movies</button>
-                        <button class="btn btn-top btn-anime"><i class="icon-anime"></i> Anime</button>
+                        <button class="btn btn-danger btn-top btn-show-all" ><i class="icon-lines"></i> All</button>
+                        <button class="btn btn-primary btn-top btn-series" ><i class="icon-television"></i> Series</button>
+                        <button class="btn btn-success btn-top btn-movies" ><i class="icon-movie"></i> Movies</button>
+                        <button class="btn btn-top btn-anime"><i class="icon-anime" ></i> Anime</button>
                     </span>
                 </div>
                 <div class="row">              
                     <!-- ********************************** poster item 1 ********************************** --> 
                     <% for(let i=0; i < newAdded.length; i++) { %>      
-                    <div class="col poster example1">
+                    <div class="col poster" <%= filterAdded(newAdded[i].type) %>>
                             <div class="poster-links">
-                                <a href="#" class="btn-poster btn-<%= newAdded[i].type.toLowerCase() %>"><i class="icon-television"></i> <%= newAdded[i].type %></a><a class="btn-poster btn-<%= newAdded[i].complete %>"><%= newAdded[i].complete %></a>
+                                <a href="#" class="btn-poster btn-<%= newAdded[i].type.toLowerCase() %>"><i class="icon-<%= newAdded[i].type.toLowerCase() %>"></i> <%= newAdded[i].type %></a><a class="btn-poster btn-<%= newAdded[i].complete %>"><%= newAdded[i].complete %></a>
                             </div>
                             <a href="/item/<%= newAdded[i].id+'/'+newAdded[i].season_ref %>"><div class="poster-content">
                             <div class="poster-info">
@@ -115,7 +130,7 @@
                     <% for(let i=0; i < mostWatched.length; i++) { %>      
                         <div class="col poster example1">
                                 <div class="poster-links">
-                                    <a href="#" class="btn-poster btn-<%= mostWatched[i].type.toLowerCase() %>"><i class="icon-television"></i> <%= mostWatched[i].type %></a><a class="btn-poster btn-<%= mostWatched[i].complete %>"><%= mostWatched[i].complete %></a>
+                                    <a href="#" class="btn-poster btn-<%= mostWatched[i].type.toLowerCase() %>"><i class="icon-<%= mostWatched[i].type.toLowerCase() %>"></i> <%= mostWatched[i].type %></a><a class="btn-poster btn-<%= mostWatched[i].complete %>"><%= mostWatched[i].complete %></a>
                                 </div>
                                 <a href="/item/<%= mostWatched[i].id %>"><div class="poster-content">
                                 <div class="poster-info">

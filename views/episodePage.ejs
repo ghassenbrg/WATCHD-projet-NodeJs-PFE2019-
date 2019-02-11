@@ -5,17 +5,17 @@
                 <div class=" item-content">
                     <div class=" item-info item-cover-info">
                         <div class="btn-cover">
-                            <a href="#"><button class="btn btn-cat btn-<%= episode.item.type.toLowerCase() %>"><i class="icon-anime"></i> <%= episode.item.type %></button></a>
+                            <a href="#"><button class="btn btn-cat btn-<%= episode.item.type.toLowerCase() %>"><i class="icon-<%= episode.item.type.toLowerCase() %>"></i> <%= episode.item.type %></button></a>
                         </div>
-                        <% var pos=0; 
+                        <% var pos=0; var hideItPrev = ''; var hideItNext = '';
                             while((episode.ep_ref != other_episodes[pos].ep_ref) && (pos < other_episodes.length)){
                                 
                                 pos++;
                             }  
                         %>
-                        <a href="<% if (pos > 0) __append('/item/'+other_episodes[pos-1].id+'/'+other_episodes[pos-1].season_ref+'/'+other_episodes[pos-1].ep_ref); %>"><button class="btn btn-outline-light btn-episode-np"><i class="icon-previous"></i> Previous</button></a>
+                        <a href="<% if (pos > 0) __append('/item/'+other_episodes[pos-1].id+'/'+other_episodes[pos-1].season_ref+'/'+other_episodes[pos-1].ep_ref); else hideItPrev = 'hidden'; %>" <%= hideItPrev %>><button class="btn btn-outline-light btn-episode-np"><i class="icon-previous"></i> Previous</button></a>
                         <h1 class="cover-title"><%= episode.item.title+' '+episode.season_ref+episode.ep_ref %></h1>
-                        <a href="<% if (pos < other_episodes.length-1) __append('/item/'+other_episodes[pos+1].id+'/'+other_episodes[pos+1].season_ref+'/'+other_episodes[pos+1].ep_ref); %>"><button class="btn btn-outline-light btn-episode-np">Next <i class="icon-next"></i></button></a>
+                        <a href="<% if (pos < other_episodes.length-1) __append('/item/'+other_episodes[pos+1].id+'/'+other_episodes[pos+1].season_ref+'/'+other_episodes[pos+1].ep_ref); else hideItNext = 'hidden'; %>" <%= hideItNext %>><button class="btn btn-outline-light btn-episode-np">Next <i class="icon-next"></i></button></a>
                     </div>
                 </div>
               </div>
@@ -82,7 +82,7 @@
                         </figure>   
                     </div> 
                     <div class="col col-6">
-                            <a href="#"><button class="btn btn-cat btn-<%= episode.item.type.toLowerCase() %>"><i class="icon-anime"></i> <%= episode.item.type %></button></a>
+                            <a href="#"><button class="btn btn-cat btn-<%= episode.item.type.toLowerCase() %>"><i class="icon-<%= episode.item.type.toLowerCase() %>"></i> <%= episode.item.type %></button></a>
                             <h1 class="cover-title"><%= episode.item.title %></h1>
                             <p class="cover-info cover-info-details">
                                 <span>Runtime: </span><%= episode.item.runtime %> min
