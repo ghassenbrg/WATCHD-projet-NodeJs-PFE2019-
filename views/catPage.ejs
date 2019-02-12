@@ -1,0 +1,46 @@
+
+<%- include elements/header.ejs %>                
+    <!-- ********************* most watched *********************--> 
+    <div class="container-item new-added">
+        <div class="container-item-header">
+            <h3><span class="icon-fire"></span> <%= page %></h3>
+           <!-- <span class="container-item-header-right">
+                <button class="btn btn-danger btn-top btn-show-all"><i class="icon-lines"></i> All</button>
+                <button class="btn btn-primary btn-top btn-series"><i class="icon-television"></i> Series</button>
+                <button class="btn btn-success btn-top btn-movies"><i class="icon-movie"></i> Movies</button>
+                <button class="btn btn-top btn-anime"><i class="icon-anime"></i> Anime</button>
+            </span> -->
+        </div>
+        <div class="row">              
+            <!-- ********************************** poster item 1 ********************************** --> 
+            <% for(let i=0; i < items.length; i++) { %>      
+                <div class="col poster">
+                        <div class="poster-links">
+                            <a href="/cat/<%= items[i].type %>" class="btn-poster btn-<%= items[i].type.toLowerCase() %>"><i class="icon-<%= items[i].type.toLowerCase() %>"></i> <%= items[i].type %></a><a class="btn-poster btn-<%= items[i].complete %>"><%= items[i].complete %></a>
+                        </div>
+                        <a href="/item/<%= items[i].id %>"><div class="poster-content">
+                        <div class="poster-info">
+                            <h5><%= items[i].title %></h5>
+                            <p>
+                                <% for(let j=0; j < 5; j++) { 
+                                   if (j < (items[i].rating / 2)) {%>
+                                <i class="icon-star review-star"></i>
+                                <% } else { %>
+                                <i class="icon-star review-star-off"></i>
+
+                                <% } } %>
+                            </p>
+                        </div>
+                    </div> </a>
+                    <figure class="poster-figure">
+                            <img src="<%= prefixe+items[i].poster_url %>" class="poster-img"/>
+                    </figure>   
+                </div> 
+                <% } %>
+        </div>
+    </div>  
+    
+    
+</div> 
+
+<%- include elements/footer.ejs %>

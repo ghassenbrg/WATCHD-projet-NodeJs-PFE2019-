@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?ykyeos');
-  src:  url('fonts/icomoon.eot?ykyeos#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?ykyeos') format('truetype'),
-    url('fonts/icomoon.woff?ykyeos') format('woff'),
-    url('fonts/icomoon.svg?ykyeos#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?qprbwz');
+  src:  url('fonts/icomoon.eot?qprbwz#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?qprbwz') format('truetype'),
+    url('fonts/icomoon.woff?qprbwz') format('woff'),
+    url('fonts/icomoon.svg?qprbwz#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -36,129 +36,108 @@
 .icon-checked:before {
   content: "\e903";
 }
-.icon-continued .path1:before {
+.icon-continued:before {
   content: "\e904";
-  color: rgb(0, 0, 0);
-}
-.icon-continued .path2:before {
-  content: "\e905";
-  margin-left: -1em;
-  color: rgb(0, 0, 0);
-}
-.icon-continued .path3:before {
-  content: "\e906";
-  margin-left: -1em;
-  color: rgb(0, 0, 0);
-}
-.icon-continued .path4:before {
-  content: "\e907";
-  margin-left: -1em;
-  color: rgb(0, 0, 0);
-}
-.icon-continued .path5:before {
-  content: "\e908";
-  margin-left: -1em;
-  color: rgb(1, 1, 1);
 }
 .icon-down:before {
-  content: "\e909";
+  content: "\e905";
 }
 .icon-download:before {
-  content: "\e90a";
+  content: "\e906";
 }
 .icon-event:before {
-  content: "\e90b";
+  content: "\e907";
 }
 .icon-fire:before {
-  content: "\e90c";
+  content: "\e908";
 }
 .icon-folder:before {
-  content: "\e90d";
+  content: "\e909";
 }
 .icon-garbage:before {
-  content: "\e90e";
+  content: "\e90a";
 }
 .icon-home:before {
-  content: "\e90f";
+  content: "\e90b";
 }
 .icon-hot:before {
-  content: "\e910";
+  content: "\e90c";
 }
 .icon-item-list:before {
-  content: "\e911";
+  content: "\e90d";
 }
 .icon-join-us:before {
-  content: "\e912";
+  content: "\e90e";
 }
 .icon-light_off:before {
-  content: "\e913";
+  content: "\e90f";
 }
 .icon-light_on:before {
-  content: "\e914";
+  content: "\e910";
 }
 .icon-like:before {
-  content: "\e915";
+  content: "\e911";
 }
 .icon-lines:before {
-  content: "\e916";
+  content: "\e912";
 }
 .icon-list:before {
-  content: "\e917";
+  content: "\e913";
 }
 .icon-monitor:before {
-  content: "\e918";
+  content: "\e914";
 }
 .icon-movies:before {
-  content: "\e919";
+  content: "\e915";
 }
 .icon-next:before {
-  content: "\e91a";
+  content: "\e916";
 }
 .icon-next_f:before {
-  content: "\e91b";
+  content: "\e917";
 }
 .icon-notification:before {
-  content: "\e91c";
+  content: "\e918";
 }
 .icon-notifications-on:before {
-  content: "\e91d";
+  content: "\e919";
 }
 .icon-play:before {
-  content: "\e91e";
+  content: "\e91a";
 }
 .icon-plus:before {
-  content: "\e91f";
+  content: "\e91b";
 }
 .icon-previous:before {
-  content: "\e920";
+  content: "\e91c";
 }
 .icon-previous_f:before {
-  content: "\e921";
+  content: "\e91d";
 }
 .icon-search:before {
-  content: "\e922";
+  content: "\e91e";
 }
 .icon-series:before {
-  content: "\e923";
+  content: "\e91f";
 }
 .icon-settings:before {
-  content: "\e924";
+  content: "\e920";
 }
 .icon-sign-in:before {
-  content: "\e925";
+  content: "\e921";
 }
 .icon-star:before {
-  content: "\e926";
+  content: "\e922";
 }
 .icon-television:before {
-  content: "\e927";
+  content: "\e923";
 }
 .icon-time:before {
-  content: "\e928";
+  content: "\e924";
 }
 .icon-video:before {
-  content: "\e929";
+  content: "\e925";
 }
 .icon-warning:before {
-  content: "\e92a";
+  content: "\e926";
 }

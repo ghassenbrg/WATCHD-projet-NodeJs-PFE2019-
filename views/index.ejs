@@ -20,7 +20,7 @@
                     <img src="<%= carousel[i].cover_url %>" class=" slider-img" alt="...">
                     <div class="item-content">
                         <div class="item-info">
-                            <a href="#"><button class="btn btn-cat btn-<%= carousel[i].type.toLowerCase() %>"><i class="icon-<%= carousel[i].type.toLowerCase() %>"></i> <%= carousel[i].type %></button></a>
+                            <a href="/cat/<%= carousel[i].type %>"><button class="btn btn-cat btn-<%= carousel[i].type.toLowerCase() %>"><i class="icon-<%= carousel[i].type.toLowerCase() %>"></i> <%= carousel[i].type %></button></a>
                             <a href="/item/<%= carousel[i].id %>"><h1><%= carousel[i].title %></h1></a>
                             <p class="info-text">
                                 <i class="icon-video genre-icon"></i> <% for (let j=0; j< carousel[i].genre.length; j++) __append(carousel[i].genre[j]+' . ')   %>
@@ -91,7 +91,7 @@
                     <% for(let i=0; i < newAdded.length; i++) { %>      
                     <div class="col poster" <%= filterAdded(newAdded[i].type) %>>
                             <div class="poster-links">
-                                <a href="#" class="btn-poster btn-<%= newAdded[i].type.toLowerCase() %>"><i class="icon-<%= newAdded[i].type.toLowerCase() %>"></i> <%= newAdded[i].type %></a><a class="btn-poster btn-<%= newAdded[i].complete %>"><%= newAdded[i].complete %></a>
+                                <a href="/cat/<%= newAdded[i].type %>" class="btn-poster btn-<%= newAdded[i].type.toLowerCase() %>"><i class="icon-<%= newAdded[i].type.toLowerCase() %>"></i> <%= newAdded[i].type %></a><a class="btn-poster btn-<%= newAdded[i].complete %>"><%= newAdded[i].complete %></a>
                             </div>
                             <a href="/item/<%= newAdded[i].id+'/'+newAdded[i].season_ref %>"><div class="poster-content">
                             <div class="poster-info">
@@ -130,7 +130,7 @@
                     <% for(let i=0; i < mostWatched.length; i++) { %>      
                         <div class="col poster example1">
                                 <div class="poster-links">
-                                    <a href="#" class="btn-poster btn-<%= mostWatched[i].type.toLowerCase() %>"><i class="icon-<%= mostWatched[i].type.toLowerCase() %>"></i> <%= mostWatched[i].type %></a><a class="btn-poster btn-<%= mostWatched[i].complete %>"><%= mostWatched[i].complete %></a>
+                                    <a href="/cat/<%= mostWatched[i].type %>" class="btn-poster btn-<%= mostWatched[i].type.toLowerCase() %>"><i class="icon-<%= mostWatched[i].type.toLowerCase() %>"></i> <%= mostWatched[i].type %></a><a class="btn-poster btn-<%= mostWatched[i].complete %>"><%= mostWatched[i].complete %></a>
                                 </div>
                                 <a href="/item/<%= mostWatched[i].id %>"><div class="poster-content">
                                 <div class="poster-info">

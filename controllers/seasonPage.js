@@ -34,7 +34,7 @@ class SeasonPage {
             let res= new Season(rows[0]);
             setTimeout(() => {
               resolve(res);
-             }, 10); 
+             }, 50); 
         });
        });
     }
@@ -50,7 +50,7 @@ class SeasonPage {
                   }
                   setTimeout(() => {
                     resolve(res);
-                   }, 10); 
+                   }, 50); 
           });
         });
       }
@@ -66,7 +66,7 @@ class SeasonPage {
                     }
                     setTimeout(() => {
                       resolve(res);
-                     }, 10); 
+                     }, 50); 
             });
            });
     }
@@ -82,7 +82,7 @@ class SeasonPage {
                 }
                 setTimeout(() => {
                   resolve(res);
-                 }, 10); 
+                 }, 50); 
         });
        });
     }

@@ -4,6 +4,7 @@ const index = require('./controllers/index');
 const itemPage = require('./controllers/itemPage');
 const seasonPage = require('./controllers/seasonPage');
 const episodePage = require('./controllers/episodePage');
+const catPage = require('./controllers/catPage');
 
 app.use( express.static( "public" ) ); // dossier public contient tout ce qui est externe
 
@@ -11,6 +12,11 @@ app.set('view engine', 'ejs');  // hedha bch ne5dmou 3l les view té3na
 
 app.get('/', function (req, res) { // index page
   index.execute(req, res);
+});
+
+app.get('/cat/:type', function (req, res) { // cat apge
+  let type = req.params.type;
+  catPage.execute(type, req, res);
 });
 
 app.get('/item/:id', function (req, res) { // item apge

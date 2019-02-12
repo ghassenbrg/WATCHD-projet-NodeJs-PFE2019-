@@ -36,7 +36,7 @@ class Index {
             }
             setTimeout(() => {
               resolve(res);
-             }, 10); 
+             }, 50); 
         });
        });
     }
@@ -52,7 +52,7 @@ class Index {
               }
               setTimeout(() => {
                 resolve(res);
-               }, 10); 
+               }, 50); 
       });
        });
     }
@@ -68,7 +68,7 @@ class Index {
                 }
                 setTimeout(() => {
                   resolve(res);
-                 }, 20); 
+                 }, 50); 
         });
        });
     }
@@ -84,7 +84,7 @@ class Index {
                 }
                 setTimeout(() => {
                   resolve(res);
-                 }, 10); 
+                 }, 50); 
         });
        });
     }

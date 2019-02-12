@@ -35,7 +35,7 @@ class EpisodePage {
             let res= new Episode(rows[0],'all');
             setTimeout(() => {
               resolve(res);
-             }, 10); 
+             }, 50); 
         });
        });
     }
@@ -51,7 +51,7 @@ class EpisodePage {
                   }
                   setTimeout(() => {
                     resolve(res);
-                   }, 10); 
+                   }, 50); 
           });
            });
       }
@@ -67,7 +67,7 @@ class EpisodePage {
                     }
                     setTimeout(() => {
                       resolve(res);
-                     }, 10); 
+                     }, 50); 
             });
            });
     }
@@ -83,7 +83,7 @@ class EpisodePage {
                 }
                 setTimeout(() => {
                   resolve(res);
-                 }, 10); 
+                 }, 50); 
         });
        });
     }

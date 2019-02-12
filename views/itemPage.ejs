@@ -4,7 +4,7 @@
             <img src="../<%= item.cover_url %>" class=" slider-img" alt="...">
             <div class=" item-content">
                 <div class=" item-info item-cover-info">
-                    <a href="#"><button class="btn btn-cat btn-<%= item.type.toLowerCase() %>"><i class="icon-<%= item.type.toLowerCase() %>"></i> <%= item.type %></button></a>
+                    <a href="/cat/<%= item.type %>"><button class="btn btn-cat btn-<%= item.type.toLowerCase() %>"><i class="icon-<%= item.type.toLowerCase() %>"></i> <%= item.type %></button></a>
                     <h1 class="cover-title"><%= item.title %></h1>
                     <p class="cover-info"><%= item.desc %></p>
                     <p class="cover-info cover-info-details">
@@ -61,7 +61,7 @@
                 <% for(let i=0; i < seasons.length; i++) { %>      
                     <div class="col poster example1">
                         <div class="poster-links">
-                            <a href="#" class="btn-poster btn-<%= seasons[i].type.toLowerCase() %>"><i class="icon-<%= seasons[i].type.toLowerCase() %>"></i> <%= seasons[i].type %></a><a class="btn-poster btn-<%= seasons[i].complete %>"><%= seasons[i].complete %></a>
+                            <a href="/cat/<%= seasons[i].type %>" class="btn-poster btn-<%= seasons[i].type.toLowerCase() %>"><i class="icon-<%= seasons[i].type.toLowerCase() %>"></i> <%= seasons[i].type %></a><a class="btn-poster btn-<%= seasons[i].complete %>"><%= seasons[i].complete %></a>
                         </div>
                         <a href="/item/<%= seasons[i].id+'/'+seasons[i].season_ref %>"><div class="poster-content">
                         <div class="poster-info">
@@ -94,7 +94,7 @@
                 <% for(let i=0; i < related.length; i++) { %>      
                     <div class="col poster example1">
                         <div class="poster-links">
-                            <a href="#" class="btn-poster btn-<%= related[i].type.toLowerCase() %>"><i class="icon-television"></i> <%= related[i].type %></a><a class="btn-poster btn-<%= related[i].complete %>"><%= related[i].complete %></a>
+                            <a href="/cat/<%= related[i].type %>" class="btn-poster btn-<%= related[i].type.toLowerCase() %>"><i class="icon-television"></i> <%= related[i].type %></a><a class="btn-poster btn-<%= related[i].complete %>"><%= related[i].complete %></a>
                         </div>
                         <a href="/item/<%= related[i].id %>"><div class="poster-content">
                         <div class="poster-info">
